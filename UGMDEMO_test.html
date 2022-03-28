@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+
+<meta name="generator" content="Jekyll v3.9.0" />
+
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://github.com/QiangChunyu/UGM_DEMO" />
+<meta property="og:url" content="https://github.com/QiangChunyu/UGM_DEMO" />
+<meta property="og:site_name" content="KConverter" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis" />
+<script type="application/ld+json">
+{"url":"https://github.com/QiangChunyu/UGM_DEMO","@type":"WebSite","headline":"Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis","name":"KConverter","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/KConverter/assets/css/style.css?v=47c45b4a6429e53e24ac0db928295c759205f750">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/KConverter/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name"></h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/QiangChunyu/UGM_DEMO" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="-k-converter-an-unsupervised-singing-voice-conversion-system"><center> Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis</center></h1>
+<center>Chunyu Qiang, Peng Yang, Hao Che, Xiaorui Wang, Zhongyuan Wang</center>
+<p><br /></p>
+<center>Kwai, Beijing, P.R. China</center>
+<p><br /></p>
+
+<h2 id="abstract">Abstract</h2>
+<div style="text-align: justify"> Cross-speaker style transfer in speech synthesis aims at transferring a style from source speaker to synthesised speech of a target speaker's timbre. Most previous approaches rely on data with style labels, but manually-annotated labels are expensive and not always reliable. In response to this problem, we propose Style-Label-Free, a cross-speaker style transfer method, which can realize the style transfer from source speaker to target speaker without style labels. Firstly, a reference encoder structure based on quantized variational autoencoder (Q-VAE) and style bottleneck is designed to extract discrete style representations. Secondly, a speaker-wise batch normalization layer is proposed to reduce the source speaker leakage. In order to improve the style extraction ability of the reference encoder, a style invariant and contrastive data augmentation method is proposed. Experimental results show that the method outperforms the baseline. We provide a website with audio samples. </div>
+
+<p><br /></p>
+
+<h2 id="model-architecture">Model Architecture</h2>
+<table border="0">
+  <tbody>
+    <tr>
+      <td><img src="./proposed_mdoel3.png" alt="Overall Architecture" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="comparison-with-baseline-systems">Style Transfer</h2>
+
+<p><strong>Style 1</strong></p>
+
+<table align="center">
+  <thead>
+    <tr>
+
+      <th>Target Speaker</th>
+      <th>Reference</th>
+      <th>Baseline</th>
+      <th>Proposed</th>
+    </tr>
+  </thead>
+  <!-- 然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。
+饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去
+他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 -->
+  <tbody>
+    <tr class="info"><td colspan="4"><span>Target text 1 <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+   <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000402_0.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_0/00001.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_0/00001.wav" /></audio></td>
+
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 2 <i>"饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去"</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000402_0.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_0/00002.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_0/00002.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 3 <i>"他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 "</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000402_0.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_0/00003.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_0/00003.wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+
+<p><strong>Style 2</strong></p>
+
+<table align="center">
+  <thead>
+    <tr>
+
+      <th>Target Speaker</th>
+      <th>Reference</th>
+      <th>Baseline</th>
+      <th>Proposed</th>
+    </tr>
+  </thead>
+  <!-- 然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。
+饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去
+他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 -->
+  <tbody>
+    <tr class="info"><td colspan="4"><span>Target text 1 <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+   <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000754_1.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_1/00001.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_1/00001.wav" /></audio></td>
+
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 2 <i>"饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去"</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000754_1.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_1/00002.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_1/00002.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 3 <i>"他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 "</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000754_1.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_1/00003.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_1/00003.wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+<p><strong>Style 3</strong></p>
+
+<table align="center">
+  <thead>
+    <tr>
+
+      <th>Target Speaker</th>
+      <th>Reference</th>
+      <th>Baseline</th>
+      <th>Proposed</th>
+    </tr>
+  </thead>
+  <!-- 然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。
+饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去
+他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 -->
+  <tbody>
+    <tr class="info"><td colspan="4"><span>Target text 1 <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+   <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000051_2.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_2/00001.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_2/00001.wav" /></audio></td>
+
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 2 <i>"饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去"</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000051_2.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_2/00002.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_2/00002.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 3 <i>"他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 "</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_000051_2.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_2/00003.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_2/00003.wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+<p><strong>Style 4</strong></p>
+
+<table align="center">
+  <thead>
+    <tr>
+
+      <th>Target Speaker</th>
+      <th>Reference</th>
+      <th>Baseline</th>
+      <th>Proposed</th>
+    </tr>
+  </thead>
+  <!-- 然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。
+饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去
+他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 -->
+  <tbody>
+    <tr class="info"><td colspan="4"><span>Target text 1 <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+   <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001101_3.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_3/00001.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_3/00001.wav" /></audio></td>
+
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 2 <i>"饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去"</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001101_3.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_3/00002.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_3/00002.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 3 <i>"他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 "</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001101_3.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_3/00003.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_3/00003.wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+
+<p><strong>Style 5</strong></p>
+
+<table align="center">
+  <thead>
+    <tr>
+
+      <th>Target Speaker</th>
+      <th>Reference</th>
+      <th>Baseline</th>
+      <th>Proposed</th>
+    </tr>
+  </thead>
+  <!-- 然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。
+饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去
+他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 -->
+  <tbody>
+    <tr class="info"><td colspan="4"><span>Target text 1 <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+   <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001602_4.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_4/00001.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_4/00001.wav" /></audio></td>
+
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 2 <i>"饭店看上去没有门，门和窗连成一片，中间只是隔了两根木条，许三观他们就是从旁边应该是窗户的地方走了进去"</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001602_4.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_4/00002.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_4/00002.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text 3 <i>"他们坐在了靠窗的桌子前，窗外是那条穿过城镇的小河，河面上漂过去了几片青菜叶子。 "</i></span></td>
+    <tr>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/source.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/0003_001602_4.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/baseline/emotion_4/00003.wav" /></audio></td>
+      <td><audio controls="" preload="auto"><source src="DEMO/transfer/female/proposed/emotion_4/00003.wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+
+<!-- single-dimensional control of
+global style embedding: (a) is original sample, (b) changes the
+duration by controlling dimension 7, (c) changes the energy by
+controlling dimension 9, (d) changes the pitch by controlling di-
+mension 10. -->
+
+<h2 id="ablation">Single-dimensional control of global style embedding</h2>
+
+<hr />
+<table>
+
+  <tbody>
+    <tr>
+      <td>Target Speaker</td>
+      <td><audio controls="" preload="auto">
+            <source src="DEMO/dim_control/source.wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Reference</td>
+      <td><audio controls="" preload="auto">
+            <source src="DEMO/dim_control/target.wav" /></audio></td>
+    </tr>
+    <tr class="info"><td colspan="4"><span>Target text: <i>"然后，他们来到了那家名叫胜利的饭店，饭店是在一座石桥的桥堍，它的屋顶还没有桥高，屋顶上长满了杂草，在屋檐前伸出来像是脸上的眉毛。"</i></span></td>
+  </tbody>
+</table>
+<hr />
+
+<table class="fixed">
+  <thead>
+  <tr>	
+    <th>original</th><th>dimension 7</th><th>dimension 9</th><th>dimension 10</th>
+  </tr>	
+</thead>	
+ <tbody>
+   
+   </tr>
+   <tr>
+      <td calss="mel"><img id="F_noisy_mel" src="./DEMO/dim_control/ori.png" alt="mel" width="300" height="200"/></td>			
+      <td calss="mel"><img id="F_output_mel" src="./DEMO/dim_control/00001_ref_dim_1=10.png" alt="mel" width="300" height="200"/></td>		
+      <td calss="mel"><img id="F_clean_mel" src="./DEMO/dim_control/00001_ref_dim_9=10.png" alt="mel" width="300" height="200"/></td>
+      <td calss="mel"><img id="F_clean_mel" src="./DEMO/dim_control/00001_ref_dim_0=10.png" alt="mel" width="300" height="200"/></td>			
+    </tr>	
+
+   <tr>
+     <td><audio id="F_noisy_wav" controls=""><source id="ori" src="DEMO/dim_control/ori.wav" type="audio/wav"></audio></td>
+     <td><audio id="F_output_wav" controls=""><source id="dim1" src="DEMO/dim_control/00001_ref_dim_1=10.wav" type="audio/wav"></audio></td>
+     <td><audio id="F_clean_wav" controls=""><source id="dim9" src="DEMO/dim_control/00001_ref_dim_9=10.wav" type="audio/wav"></audio></td>
+     <td><audio id="F_clean_wav" controls=""><source id="dim10" src="DEMO/dim_control/00001_ref_dim_0=10.wav" type="audio/wav"></audio></td>
+   </tr>
+
+   </tbody>
+</table>
+
+
+<hr />
+
+
+
+
+      <footer class="site-footer">
+        
+      
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
