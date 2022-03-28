@@ -12,9 +12,9 @@
 <meta property="og:url" content="https://github.com/QiangChunyu/UGM_DEMO" />
 <meta property="og:site_name" content="KConverter" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis" />
+<meta property="twitter:title" content="Unsupervised Generative Modeling for Cross-Speaker Style Transfer and Control in End-to-End Speech Synthesis" />
 <script type="application/ld+json">
-{"url":"https://github.com/QiangChunyu/UGM_DEMO","@type":"WebSite","headline":"Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis","name":"KConverter","@context":"https://schema.org"}</script>
+{"url":"https://github.com/QiangChunyu/UGM_DEMO","@type":"WebSite","headline":"Unsupervised Generative Modeling for Cross-Speaker Style Transfer and Control in End-to-End Speech Synthesis","name":"KConverter","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,14 +48,14 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      <h1 id="-k-converter-an-unsupervised-singing-voice-conversion-system"><center> Style-Label-Free: Cross-Speaker Style Transfer by Quantized VAE and Speaker-wise Normalization in Speech Synthesis</center></h1>
+      <h1 id="-k-converter-an-unsupervised-singing-voice-conversion-system"><center> Unsupervised Generative Modeling for Cross-Speaker Style Transfer and Control in End-to-End Speech Synthesis</center></h1>
 <center>Chunyu Qiang, Peng Yang, Hao Che, Xiaorui Wang, Zhongyuan Wang</center>
 <p><br /></p>
 <center>Kwai, Beijing, P.R. China</center>
 <p><br /></p>
 
 <h2 id="abstract">Abstract</h2>
-<div style="text-align: justify"> Cross-speaker style transfer in speech synthesis aims at transferring a style from source speaker to synthesised speech of a target speaker's timbre. Most previous approaches rely on data with style labels, but manually-annotated labels are expensive and not always reliable. In response to this problem, we propose Style-Label-Free, a cross-speaker style transfer method, which can realize the style transfer from source speaker to target speaker without style labels. Firstly, a reference encoder structure based on quantized variational autoencoder (Q-VAE) and style bottleneck is designed to extract discrete style representations. Secondly, a speaker-wise batch normalization layer is proposed to reduce the source speaker leakage. In order to improve the style extraction ability of the reference encoder, a style invariant and contrastive data augmentation method is proposed. Experimental results show that the method outperforms the baseline. We provide a website with audio samples. </div>
+<div style="text-align: justify"> In the cross-speaker style transfer and control task, the key lies in how to disentangle speaker timbre information and style information. Tradition methods rely on providing style labels for models to solve this problem. However, it is expensive to obtain data with style labels. In response to this problem, we propose an unsupervised cross-speaker style transfer and control method, which can realize the transfer and control of styles from source speaker to target speaker without style labels. Firstly, a reference encoder structure based on reparameterization quantization variational autoencoder (RQ-VAE) and style bottleneck is designed to extract style information. Secondly, a speaker-wise batch normalization layer is proposed to reduce the interference of speaker trimbre information. In order to construct unpaired triplets without style labels to calculate constrast cycle consistency loss, a style constrast data automatic generation method is proposed. Experimental results show that the method outperforms the baseline. We provide a website with audio samples. </div>
 
 <p><br /></p>
 
@@ -63,7 +63,7 @@
 <table border="0">
   <tbody>
     <tr>
-      <td><img src="./proposed_mdoel3.png" alt="Overall Architecture" /></td>
+      <td><img src="./prosody_model_2.png" alt="Overall Architecture" /></td>
     </tr>
   </tbody>
 </table>
